@@ -31,7 +31,6 @@
 #right-container {
     display: table-cell;
     width: 30%;
-    border: 1px solid green;
     overflow: hidden;
 }
 
@@ -94,9 +93,9 @@
     float: right;
     padding-top: 10px;
     padding-right: 10px;
-    position: relative;
-    right: 0px;
-    top: 0px;
+    position: fixed;
+    right: 40px;
+    top: 200px;
     bottom: 0px;
 }
 
@@ -123,4 +122,13 @@
 .sidebar-frame {
     height: fit-content;
     overflow: scroll;
+}
+
+.right-panel {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    right: 40px;
+    top: 200px;
+    overflow: hidden;
 }
