@@ -1,7 +1,7 @@
 import { Inject, Injectable, Optional } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Observable, of, map, tap, catchError, throwError, Subscriber } from 'rxjs';
-
+import { Observable, of, throwError, Subscriber } from 'rxjs';
+import { map, tap, catchError } from 'rxjs/operators';
 import { AuthInfo, UserDetails, Credentials, MOCK_CREDENTIALS, messageToCredentials, deepCopy } from './auth';
 import { Configuration, ConfigurationService } from '../config/config.module';
 
@@ -249,10 +249,14 @@ export class OARAuthenticationService extends AuthenticationService {
             // Get server-side error
             errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
         }
+
         // window.alert(errorMessage);
         return throwError(() => {
             return errorMessage;
         });
+
+        // error.message = errorMessage;
+        // return throwError(error);
     }
                        
     /**
