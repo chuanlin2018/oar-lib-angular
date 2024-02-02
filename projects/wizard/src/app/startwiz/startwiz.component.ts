@@ -1,5 +1,5 @@
 import { Component, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { UntypedFormGroup, FormControl, UntypedFormBuilder } from '@angular/forms';
 import { WizardComponent } from 'angular-archwizard';
 import { NavigationMode } from 'angular-archwizard'
 import { DataModel } from './models/data.model';
@@ -17,18 +17,18 @@ import { DataModel } from './models/data.model';
     }
 })
 export class StartWizardComponent {
-    fgPubtype!: FormGroup;
-    fgContactInfo!: FormGroup;
-    fgSoftwareInfo!: FormGroup;
-    fgFiles!: FormGroup;
-    fgAssocPapers: FormGroup;
+    fgPubtype!: UntypedFormGroup;
+    fgContactInfo!: UntypedFormGroup;
+    fgSoftwareInfo!: UntypedFormGroup;
+    fgFiles!: UntypedFormGroup;
+    fgAssocPapers: UntypedFormGroup;
     bodyHeight: number = 550;
 
     onSoftware: boolean = false;
 
     dataModel: DataModel = {} as DataModel;
 
-    constructor(private fb: FormBuilder, private changeDetectorRef: ChangeDetectorRef) {
+    constructor(private fb: UntypedFormBuilder, private changeDetectorRef: ChangeDetectorRef) {
         this.fgPubtype = this.fb.group({
             resourceType: [""]
         });

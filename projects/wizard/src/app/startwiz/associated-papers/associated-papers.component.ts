@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { FormGroup, FormGroupDirective } from '@angular/forms';
+import { UntypedFormGroup, FormGroupDirective } from '@angular/forms';
 
 @Component({
   selector: 'app-associated-papers',
@@ -7,13 +7,13 @@ import { FormGroup, FormGroupDirective } from '@angular/forms';
   styleUrls: ['./associated-papers.component.css', '../startwiz.component.css']
 })
 export class AssociatedPapersComponent implements OnInit {
-    parantFormGroup!: FormGroup;
+    parantFormGroup!: UntypedFormGroup;
     private _sbarvisible : boolean = true;
 
     constructor(private rootFormGroup: FormGroupDirective, private chref: ChangeDetectorRef) { }
 
     ngOnInit(): void {
-        this.parantFormGroup = this.rootFormGroup.control.controls['assocPapers'] as FormGroup;
+        this.parantFormGroup = this.rootFormGroup.control.controls['assocPapers'] as UntypedFormGroup;
     }
 
     ngAfterContentInit() {

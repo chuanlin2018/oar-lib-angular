@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef, Input } from '@angular/core';
-import { FormGroup, FormGroupDirective } from '@angular/forms';
+import { UntypedFormGroup, FormGroupDirective } from '@angular/forms';
 import { DataModel } from '../models/data.model';
 
 @Component({
@@ -8,7 +8,7 @@ import { DataModel } from '../models/data.model';
     styleUrls: ['./contactinfo.component.css', '../startwiz.component.css']
 })
 export class ContactinfoComponent implements OnInit {
-    parantFormGroup!: FormGroup;
+    parantFormGroup!: UntypedFormGroup;
     private _sbarvisible : boolean = true;
 
     @Input() dataModel!: DataModel;
@@ -18,7 +18,7 @@ export class ContactinfoComponent implements OnInit {
         private cdr: ChangeDetectorRef) { }
 
     ngOnInit(): void {
-        this.parantFormGroup = this.rootFormGroup.control.controls['contactInfo'] as FormGroup;
+        this.parantFormGroup = this.rootFormGroup.control.controls['contactInfo'] as UntypedFormGroup;
     }
 
     /**

@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { FormGroup, FormGroupDirective } from '@angular/forms';
+import { UntypedFormGroup, FormGroupDirective } from '@angular/forms';
 
 @Component({
   selector: 'app-files',
@@ -7,13 +7,13 @@ import { FormGroup, FormGroupDirective } from '@angular/forms';
   styleUrls: ['./files.component.css', '../startwiz.component.css']
 })
 export class FilesComponent implements OnInit {
-    parantFormGroup!: FormGroup;
+    parantFormGroup!: UntypedFormGroup;
     private _sbarvisible : boolean = true;
 
     constructor(private rootFormGroup: FormGroupDirective, private chref: ChangeDetectorRef) { }
 
     ngOnInit(): void {
-        this.parantFormGroup = this.rootFormGroup.control.controls['files'] as FormGroup;
+        this.parantFormGroup = this.rootFormGroup.control.controls['files'] as UntypedFormGroup;
     }
 
     /**

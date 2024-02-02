@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef, Input } from '@angular/core';
-import { FormGroup, FormGroupDirective } from '@angular/forms';
+import { UntypedFormGroup, FormGroupDirective } from '@angular/forms';
 import { DataModel } from '../models/data.model';
 
 @Component({
@@ -8,7 +8,7 @@ import { DataModel } from '../models/data.model';
     styleUrls: ['./pubtype.component.css', '../startwiz.component.css']
 })
 export class PubtypeComponent implements OnInit {
-    parantFormGroup!: FormGroup;
+    parantFormGroup!: UntypedFormGroup;
     private _sbarvisible : boolean = true;
 
     @Input() dataModel!: DataModel;
@@ -20,7 +20,7 @@ export class PubtypeComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.parantFormGroup = this.rootFormGroup.control.controls['pubtype'] as FormGroup;
+        this.parantFormGroup = this.rootFormGroup.control.controls['pubtype'] as UntypedFormGroup;
         // console.log('this.parantFormGroup', this.parantFormGroup.controls['pubtype'])
         this.parantFormGroup.valueChanges.subscribe(selectedValue  => {
             // console.log('form value changed')

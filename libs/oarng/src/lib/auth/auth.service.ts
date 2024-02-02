@@ -1,6 +1,7 @@
 import { Inject, Injectable, Optional } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Observable, of, map, tap, switchMap, catchError, throwError, Subscriber, EMPTY } from 'rxjs';
+import { Observable, of, throwError, Subscriber, EMPTY } from 'rxjs';
+import { map, tap, switchMap, catchError } from 'rxjs/operators';
 
 import { AuthInfo, UserDetails, Credentials, MOCK_CREDENTIALS, messageToCredentials, deepCopy } from './auth';
 import { Configuration, ConfigurationService } from '../config/config.module';

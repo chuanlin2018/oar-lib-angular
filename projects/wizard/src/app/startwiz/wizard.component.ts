@@ -3,7 +3,7 @@ import { StepModel } from "./models/step.model";
 import { DataModel } from './models/data.model';
 import { StepService } from './services/step.service';
 import { Subscription } from 'rxjs';
-import { FormControl, FormGroup, Validators, FormBuilder, FormGroupDirective} from '@angular/forms';
+import { FormControl, UntypedFormGroup, Validators, UntypedFormBuilder, FormGroupDirective} from '@angular/forms';
 
 @Component({
     selector: 'app-wizard',
@@ -22,11 +22,11 @@ export class WizardComponent implements OnInit {
     onSoftware: boolean = false;
     bodyHeight: number = 550;
 
-    fgSteps!: FormGroup;
+    fgSteps!: UntypedFormGroup;
 
     constructor(
         private stepService: StepService,
-        private fb: FormBuilder, 
+        private fb: UntypedFormBuilder, 
         private cdr: ChangeDetectorRef
     ) { 
         this.fgSteps = fb.group({

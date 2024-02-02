@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { FormGroup, FormGroupDirective } from '@angular/forms';
+import { UntypedFormGroup, FormGroupDirective } from '@angular/forms';
 
 @Component({
     selector: 'app-softwareinfo',
@@ -7,7 +7,7 @@ import { FormGroup, FormGroupDirective } from '@angular/forms';
     styleUrls: ['./softwareinfo.component.css', '../startwiz.component.css']
 })
 export class SoftwareinfoComponent implements OnInit {
-    parantFormGroup!: FormGroup;
+    parantFormGroup!: UntypedFormGroup;
     private _sbarvisible : boolean = true;
 
     constructor(
@@ -17,7 +17,7 @@ export class SoftwareinfoComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.parantFormGroup = this.rootFormGroup.control.controls['softwareInfo'] as FormGroup;
+        this.parantFormGroup = this.rootFormGroup.control.controls['softwareInfo'] as UntypedFormGroup;
 
         this.parantFormGroup.valueChanges.subscribe(selectedValue  => {
             console.log('form value changed')
